@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f7f3">
+  <meta name="description" content="Explora herramientas y materiales en el catálogo de FerreMax.">
+  <title>Catálogo — FerreMax</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="productos.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="FerreMax, inicio">
+      <span class="brand-mark" aria-hidden="true">F<span>+</span></span>
+      <span class="brand-name">ferre<span>max</span><small>TODO PARA CONSTRUIR</small></span>
+    </a>
+    <form class="search-bar" id="search-form" role="search">
+      <label class="sr-only" for="search-input">Buscar productos</label>
+      <input id="search-input" type="search" placeholder="¿Qué necesitas para tu proyecto?" autocomplete="off">
+      <button type="submit" aria-label="Buscar">⌕</button>
+    </form>
+    <div class="header-actions">
+      <a class="contact-link" href="tel:+51984594013"><span class="action-icon" aria-hidden="true">◉</span><span><small>¿Necesitas ayuda?</small><strong>984 594 013</strong></span></a>
+      <button class="cart-trigger" data-open-cart type="button" aria-label="Abrir carrito">
+        <span class="cart-icon" aria-hidden="true">🛒</span><span class="cart-trigger-label">Mi carrito</span><span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+  <nav class="category-nav" aria-label="Navegación">
+    <a href="index.html">← <span>Volver al inicio</span></a>
+    <a href="catalogo.html">Todo el catálogo</a>
+    <a href="#productos">Herramientas y materiales</a>
+    <span class="nav-promo">Atención por WhatsApp <span aria-hidden="true">↗</span></span>
+  </nav>
+
+  <main class="catalog-page">
+    <div class="catalog-breadcrumb"><a href="index.html">Inicio</a><span>/</span><span>Catálogo</span></div>
+    <section class="catalog-heading">
+      <div><span class="eyebrow">TODO PARA TU PRÓXIMO PROYECTO</span><h1>Catálogo de productos<span>.</span></h1><p>Explora, filtra y encuentra lo que necesitas.</p></div>
+      <a class="button button-dark" href="https://wa.me/51984594013?text=Hola%2C%20quiero%20ayuda%20para%20elegir%20productos." target="_blank" rel="noopener noreferrer">Pedir asesoría <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section class="catalog-layout" id="productos" aria-label="Catálogo">
+      <aside class="catalog-sidebar">
+        <h2>Categorías</h2>
+        <div class="category-filters" id="category-filters" aria-label="Filtrar por categoría"></div>
+        <div class="catalog-help"><span>¿No encuentras lo que buscas?</span><a href="https://wa.me/51984594013?text=Hola%2C%20busco%20un%20producto%20que%20no%20veo%20en%20el%20cat%C3%A1logo." target="_blank" rel="noopener noreferrer">Consúltanos por WhatsApp ↗</a></div>
+      </aside>
+      <div class="catalog-results">
+        <div class="catalog-toolbar">
+          <span id="result-count" aria-live="polite">0 productos</span>
+          <label class="sort-control" for="sort-select">Ordenar por
+            <select id="sort-select">
+              <option value="featured">Destacados</option>
+              <option value="price-low">Precio: menor a mayor</option>
+              <option value="price-high">Precio: mayor a menor</option>
+              <option value="name">Nombre: A–Z</option>
+            </select>
+          </label>
+        </div>
+        <div class="product-grid catalog-grid" id="product-grid" data-catalog="true" aria-live="polite"></div>
+        <p class="empty-state" id="empty-state" hidden>No encontramos productos. Prueba otra búsqueda o categoría.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="index.html" aria-label="FerreMax, inicio"><span class="brand-mark" aria-hidden="true">F<span>+</span></span><span class="brand-name">ferre<span>max</span><small>TODO PARA CONSTRUIR</small></span></a>
+    <p>Herramientas e ideas para construir<br>lo que imaginas.</p>
+    <span class="footer-copy">© 2026 FerreMax. Sitio de demostración.</span>
+    <a href="https://wa.me/51984594013?text=Hola%2C%20tengo%20una%20consulta." target="_blank" rel="noopener noreferrer">Contáctanos ↗</a>
+  </footer>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="drawer-header"><div><span class="eyebrow">TU SELECCIÓN</span><h2 id="cart-title">Mi carrito <span id="drawer-count">(0)</span></h2></div><button class="icon-button" id="close-cart" type="button" aria-label="Cerrar carrito">×</button></div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-empty" id="cart-empty"><span aria-hidden="true">🛒</span><h3>Tu carrito está vacío</h3><p>Encuentra lo que necesitas para tu próximo proyecto.</p><button class="button button-dark" id="continue-shopping" type="button">Ver productos</button></div>
+    <div class="cart-summary" id="cart-summary" hidden>
+      <div class="summary-line"><span>Subtotal</span><strong id="cart-subtotal">$0.00</strong></div>
+      <p>El costo de envío se coordina por WhatsApp.</p>
+      <form id="checkout-form">
+        <h3 class="cart-form-title">Completa tu pedido</h3>
+        <label class="field-label" for="customer-name">Nombre completo</label><input class="form-field" id="customer-name" name="name" autocomplete="name" required>
+        <div class="form-row">
+          <div><label class="field-label" for="customer-phone">Teléfono</label><input class="form-field" id="customer-phone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div><label class="field-label" for="customer-email">Correo electrónico</label><input class="form-field" id="customer-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="form-row">
+          <div><label class="field-label" for="delivery-method">Entrega</label><select class="form-field" id="delivery-method" name="delivery"><option value="Domicilio">A domicilio (coordinar envío)</option><option value="Recoger en tienda">Recoger en tienda (gratis)</option></select></div>
+          <div><label class="field-label" for="payment-method">Pago preferido</label><select class="form-field" id="payment-method" name="payment"><option>Transferencia</option><option>Efectivo al recibir/recoger</option></select></div>
+        </div>
+        <div id="delivery-address-fields">
+          <div class="form-row"><div><label class="field-label" for="customer-city">Ciudad</label><input class="form-field" id="customer-city" name="city" autocomplete="address-level2" data-delivery-required required></div><div><label class="field-label" for="customer-postal">Código postal</label><input class="form-field" id="customer-postal" name="postal" inputmode="numeric" autocomplete="postal-code" data-delivery-required required></div></div>
+          <label class="field-label" for="customer-address">Dirección de entrega</label><input class="form-field" id="customer-address" name="address" autocomplete="street-address" data-delivery-required required>
+          <label class="field-label" for="customer-reference">Referencias (opcional)</label><textarea class="form-field" id="customer-reference" name="reference" rows="2" placeholder="Entre calles, color de fachada, indicaciones..."></textarea>
+        </div>
+        <div class="checkout-total"><span>Total de productos (envío por coordinar)</span><strong id="checkout-total">$0.00</strong></div>
+        <button class="button button-dark checkout-button" type="submit">Enviar pedido por WhatsApp <span aria-hidden="true">→</span></button>
+        <p class="demo-note">Pedido de prueba: se enviará a WhatsApp para confirmar disponibilidad y entrega.</p>
+      </form>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <a class="whatsapp-float" href="https://wa.me/51984594013?text=Hola%2C%20necesito%20ayuda%20con%20un%20producto." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp"><span aria-hidden="true">☎</span><span class="whatsapp-label">¿Dudas? Escríbenos</span></a>
+</body>
+</html>
