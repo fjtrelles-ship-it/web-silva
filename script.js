@@ -15,6 +15,7 @@ const scrim = document.querySelector("#scrim");
 const cartItems = document.querySelector("#cart-items");
 const cartEmpty = document.querySelector("#cart-empty");
 const cartSummary = document.querySelector("#cart-summary");
+const cartCounts = document.querySelectorAll("[data-cart-count]");
 const deliverySelect = document.querySelector("#delivery-method");
 const favorites = loadFavorites();
 let recentlyAddedProductId = null;
@@ -133,7 +134,7 @@ function estimatedTotal() {
 function renderCart() {
   if (!cartDrawer) return;
   const quantity = cartQuantity();
-  document.querySelector("#cart-count").textContent = quantity;
+  cartCounts.forEach((count) => { count.textContent = quantity; });
   document.querySelector("#drawer-count").textContent = `(${quantity})`;
   document.querySelector("#cart-subtotal").textContent = money.format(cartSubtotal());
   document.querySelector("#checkout-total").textContent = money.format(estimatedTotal());
@@ -200,7 +201,6 @@ function addToCart(productId) {
   saveCart();
   renderCart();
   const addButton = productGrid?.querySelector(`[data-add="${productId}"]`);
-  const cartCount = document.querySelector("#cart-count");
   if (addButton) {
     const originalContent = addButton.innerHTML;
     addButton.classList.add("is-added");
@@ -213,12 +213,12 @@ function addToCart(productId) {
       addButton.innerHTML = originalContent;
     }, 1000);
   }
-  if (cartCount) {
+  cartCounts.forEach((cartCount) => {
     cartCount.classList.remove("is-bumped");
     void cartCount.offsetWidth;
     cartCount.classList.add("is-bumped");
     window.setTimeout(() => cartCount.classList.remove("is-bumped"), 500);
-  }
+  });
   showToast(`${product.name} se agregó al carrito`);
 }
 

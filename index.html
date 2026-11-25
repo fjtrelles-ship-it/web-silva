@@ -9,9 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
   <script src="productos.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="script.js?v=3" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -34,7 +34,7 @@
       <button class="cart-trigger" id="cart-trigger" data-open-cart type="button" aria-label="Abrir carrito">
         <span class="cart-icon" aria-hidden="true">🛒</span>
         <span class="cart-trigger-label">Mi carrito</span>
-        <span class="cart-count" id="cart-count">0</span>
+        <span class="cart-count" data-cart-count>0</span>
       </button>
     </div>
   </header>
@@ -59,23 +59,12 @@
           <a class="button button-dark" href="catalogo.html">Explorar productos <span aria-hidden="true">→</span></a>
           <span class="hero-note">Calidad que sí responde.</span>
         </div>
-        <div class="hero-proof">
-          <div class="proof-avatars" aria-hidden="true"><i>J</i><i>M</i><i>A</i></div>
-          <span><strong>+2,500</strong> proyectos equipados</span>
-        </div>
       </div>
       <div class="hero-art">
         <img class="hero-photo" src="imagenes/FRONT.webp" alt="Interior de la ferretería Cruz Lalupu Carmen Rosa">
         <div class="art-caption"><span>CRUZ LALUPU · CARMEN ROSA</span><span>Todo para tus proyectos</span></div>
       </div>
       <div class="hero-index" aria-hidden="true">CRUZ LALUPU · CARMEN ROSA</div>
-    </section>
-
-    <section class="benefits" aria-label="Beneficios">
-      <div class="benefit"><span class="benefit-icon">✳</span><span><strong>Productos confiables</strong><small>Marcas que conoces</small></span></div>
-      <div class="benefit"><span class="benefit-icon">↗</span><span><strong>Envíos a tu puerta</strong><small>Rápidos y seguros</small></span></div>
-      <div class="benefit"><span class="benefit-icon">♡</span><span><strong>Te ayudamos a elegir</strong><small>Asesoría de expertos</small></span></div>
-      <div class="benefit"><span class="benefit-icon">✓</span><span><strong>Compra sin complicaciones</strong><small>Proceso fácil y seguro</small></span></div>
     </section>
 
     <section class="products-section favorites-section" id="productos" aria-labelledby="products-title">
@@ -155,6 +144,11 @@
   </aside>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <button class="cart-float" data-open-cart type="button" aria-label="Abrir carrito">
+    <span class="cart-icon" aria-hidden="true">🛒</span>
+    <span>Mi carrito</span>
+    <span class="cart-count" data-cart-count>0</span>
+  </button>
   <a class="whatsapp-float" href="https://wa.me/51984594013?text=Hola%2C%20necesito%20ayuda%20con%20un%20producto." target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
     <span aria-hidden="true">☎</span><span class="whatsapp-label">¿Dudas? Escríbenos</span>
   </a>
